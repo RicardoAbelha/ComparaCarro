@@ -7,7 +7,8 @@ var logger = require('morgan');
 /* Importando as rotas */
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var veiculosRouter = require('./routes/veiculos')
+var veiculosRouter = require('./routes/veiculos');
+var favoritoRouter = require('./routes/favoritos');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/veiculos', veiculosRouter);
+app.use('/favorito', favoritoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -29,11 +29,12 @@ create table veiculos(
 );
 ​
 create table favoritos(
+	create table favoritos(
 	id SERIAL primary key not null,
-	veiculo_id integer, 
-	constraint fk_veiculo_id
-     foreign key (veiculo_id) 
-     REFERENCES veiculos (id) 
+	tipo text not null,
+	marca int not null,
+	modelo int not null,
+	ano text not null 
 );
 ```
 
@@ -59,13 +60,16 @@ npm start
  
  ## Documentação dos endpoints
  
- GET /marcas
+ GET /:tipo/marcas
+ Parametro :tipo pode ter os sequintes valores carros, motos ou caminhoes
  retorna um json array com as marcas dos veiculos
  
  GET /tipos
  retorna um json array com os tipos de veiculos
  
- GET /modelos
+ GET /:tipo/marca/:valorMarca/modelos
+ Parametro :tipo pode ter os sequintes valores carros, motos ou caminhoes
+ parametro :valorMarca: usar o GET /:tipo/marcas e escolher um dos gcodigos do array e subistituir do :valorMarca.
  retorna um json array com os modelos de veiculos
  
  GET /anos
